@@ -5,7 +5,7 @@ export function SchemaRestaurant() {
     "@context": "https://schema.org",
     "@type": "Restaurant",
     name: business.name,
-    servesCuisine: "Mexican",
+    servesCuisine: ["Mexican", "Central American", "Salvadoran", "Honduran"],
     address: {
       "@type": "PostalAddress",
       streetAddress: business.addressStreet,

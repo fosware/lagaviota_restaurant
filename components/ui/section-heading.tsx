@@ -24,8 +24,14 @@ export function SectionHeading({
       )}
     >
       {eyebrow ? (
-        <p className="mb-3 text-sm font-black uppercase tracking-normal text-primary">
+        <p
+          className={cn(
+            "mb-3 flex items-center gap-3 text-sm font-black uppercase tracking-normal text-primary",
+            align === "center" && "justify-center",
+          )}
+        >
           {eyebrow}
+          <span className="fiesta-rosette shrink-0" aria-hidden="true" />
         </p>
       ) : null}
       <h2 className="text-3xl font-black leading-tight text-foreground sm:text-4xl">

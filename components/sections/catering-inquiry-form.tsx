@@ -1,68 +1,49 @@
-import { Phone } from "lucide-react";
+"use client";
+
+import { CalendarCheck, Phone, UsersRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useI18n } from "@/lib/i18n";
 import { business } from "@/lib/site";
 
 export function CateringInquiryForm() {
+  const { t } = useI18n();
+
   return (
-    <Card>
+    <Card className="papel-cutout relative overflow-hidden bg-card/96 shadow-sm">
+      <div
+        className="absolute inset-x-0 top-0 h-1.5 bg-[linear-gradient(90deg,var(--accent),var(--secondary),var(--primary))]"
+        aria-hidden="true"
+      />
       <CardHeader>
-        <CardTitle>Future Catering Request Form</CardTitle>
+        <CardTitle>{t("cateringForm.title")}</CardTitle>
         <p className="text-sm font-bold leading-6 text-muted-foreground">
-          This form is prepared for a confirmed endpoint. For now, please call the
-          restaurant to discuss catering and party packages.
+          {t("cateringForm.description")}
         </p>
       </CardHeader>
       <CardContent>
-        <form className="grid gap-4" aria-describedby="form-status">
-          <div className="grid gap-2">
-            <label className="text-sm font-black" htmlFor="name">
-              Name
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              className="min-h-11 rounded-md border bg-background px-3 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
-              autoComplete="name"
-            />
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="rounded-md border bg-[#fde9b8] p-4">
+            <UsersRound className="size-6 text-primary" aria-hidden="true" />
+            <p className="mt-3 text-sm font-black uppercase text-primary">{t("cateringForm.goodToKnow")}</p>
+            <p className="mt-2 text-sm font-bold leading-6 text-muted-foreground">
+              {t("cateringForm.goodCopy")}
+            </p>
           </div>
-          <div className="grid gap-2">
-            <label className="text-sm font-black" htmlFor="phone">
-              Phone
-            </label>
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              className="min-h-11 rounded-md border bg-background px-3 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
-              autoComplete="tel"
-            />
+          <div className="rounded-md border bg-[#fde9b8] p-4">
+            <CalendarCheck className="size-6 text-accent" aria-hidden="true" />
+            <p className="mt-3 text-sm font-black uppercase text-accent">{t("cateringForm.askAbout")}</p>
+            <p className="mt-2 text-sm font-bold leading-6 text-muted-foreground">
+              {t("cateringForm.askCopy")}
+            </p>
           </div>
-          <div className="grid gap-2">
-            <label className="text-sm font-black" htmlFor="event">
-              Event details
-            </label>
-            <textarea
-              id="event"
-              name="event"
-              rows={4}
-              className="rounded-md border bg-background px-3 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
-            />
-          </div>
-          <p id="form-status" className="rounded-md bg-muted p-3 text-sm font-bold leading-6 text-muted-foreground">
-            Online submissions are not active until the restaurant confirms where requests should be sent.
-          </p>
-          <Button type="button" disabled>
-            Request Form Pending
-          </Button>
-          <Button asChild variant="accent">
+          <Button asChild size="lg" className="sm:col-span-2">
             <a href={business.phoneHref}>
               <Phone aria-hidden="true" />
-              Call {business.phoneDisplay}
+              {t("cta.call")} {business.phoneDisplay}
             </a>
           </Button>
-        </form>
+        </div>
       </CardContent>
     </Card>
   );

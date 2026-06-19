@@ -1,13 +1,22 @@
+"use client";
+
 import { Mail, MapPin, Navigation, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useI18n } from "@/lib/i18n";
 import { business } from "@/lib/site";
 
 export function ContactCard() {
+  const { t } = useI18n();
+
   return (
-    <Card>
+    <Card className="papel-cutout relative overflow-hidden bg-card/96 shadow-sm">
+      <div
+        className="absolute inset-x-0 top-0 h-1.5 bg-[linear-gradient(90deg,var(--accent),var(--secondary),var(--primary))]"
+        aria-hidden="true"
+      />
       <CardHeader>
-        <CardTitle>Contact Us</CardTitle>
+        <CardTitle>{t("contact.cardTitle")}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-5">
         <address className="space-y-4 not-italic">
@@ -32,13 +41,13 @@ export function ContactCard() {
           <Button asChild>
             <a href={business.phoneHref}>
               <Phone aria-hidden="true" />
-              Call Now
+              {t("cta.callNow")}
             </a>
           </Button>
           <Button asChild variant="accent">
             <a href={business.mapsUrl} target="_blank" rel="noreferrer">
               <Navigation aria-hidden="true" />
-              Get Directions
+              {t("cta.getDirections")}
             </a>
           </Button>
         </div>

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Breadcrumbs } from "@/components/seo/breadcrumbs";
 import { SEOHead } from "@/components/seo/seo-head";
 import { FamilyPacksSection } from "@/components/sections/family-packs-section";
 import { CateringSection } from "@/components/sections/catering-section";
@@ -14,7 +13,6 @@ export const metadata: Metadata = SEOHead({
 export default function FamilyPacksPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: "Family Packs", href: "/family-packs" }]} />
       <FamilyPacksSection />
       <CateringSection compact />
     </>

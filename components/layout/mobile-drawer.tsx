@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Clock, Mail, MapPin, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { navLabelForHref, useI18n } from "@/lib/i18n";
 import { business, navItems } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { LanguageToggle } from "./language-toggle";
@@ -17,6 +19,12 @@ type MobileDrawerProps = {
 export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
   const pathname = usePathname();
   const closeRef = useRef<HTMLButtonElement>(null);
+  const { t } = useI18n();
+  const [portalReady, setPortalReady] = useState(false);
+
+  useEffect(() => {
+    setPortalReady(true);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -36,17 +44,19 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
     };
   }, [open, onClose]);
 
-  return (
+  if (!portalReady) return null;
+
+  return createPortal(
     <div
       aria-hidden={!open}
       className={cn(
-        "fixed inset-0 z-50 lg:hidden",
+        "fixed inset-0 z-[100] lg:hidden",
         open ? "pointer-events-auto" : "pointer-events-none",
       )}
     >
       <button
         type="button"
-        aria-label="Close mobile navigation backdrop"
+        aria-label={t("cta.closeMobileNav")}
         className={cn(
           "absolute inset-0 bg-foreground/55 transition-opacity",
           open ? "opacity-100" : "opacity-0",
@@ -56,7 +66,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
       <aside
         role="dialog"
         aria-modal="true"
-        aria-label="Mobile navigation"
+        aria-label={t("cta.mobileNav")}
         className={cn(
           "absolute right-0 top-0 flex h-full w-[min(88vw,390px)] flex-col overflow-y-auto bg-background p-5 shadow-2xl transition-transform duration-300",
           open ? "translate-x-0" : "translate-x-full",
@@ -68,7 +78,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
               La Gaviota
             </span>
             <span className="mt-1 block text-sm font-bold text-muted-foreground">
-              Mexican Restaurant
+              {t("brand.category")}
             </span>
           </Link>
           <Button
@@ -76,17 +86,18 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             type="button"
             variant="ghost"
             size="icon"
-            aria-label="Close mobile navigation"
+            aria-label={t("cta.closeMobileNav")}
             onClick={onClose}
           >
             <X aria-hidden="true" />
           </Button>
         </div>
 
-        <nav className="py-5" aria-label="Mobile primary navigation">
+        <nav className="py-5" aria-label={t("cta.mobileNav")}>
           <ul className="space-y-2">
             {navItems.map((item) => {
               const active = pathname === item.href;
+              const label = navLabelForHref(item.href, t);
               return (
                 <li key={item.href}>
                   <Link
@@ -106,7 +117,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
                         : "text-foreground hover:bg-muted",
                     )}
                   >
-                    {item.label}
+                    {label}
                   </Link>
                 </li>
               );
@@ -117,9 +128,9 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
         <div className="mt-auto space-y-4 border-t pt-5">
           <LanguageToggle />
           <Button asChild size="lg" className="w-full">
-            <a href={business.phoneHref} aria-label={`Call ${business.name} at ${business.phoneDisplay}`}>
+            <a href={business.phoneHref} aria-label={`${t("cta.callToOrder")} ${business.phoneDisplay}`}>
               <Phone aria-hidden="true" />
-              Call to Order
+              {t("cta.callToOrder")}
             </a>
           </Button>
           <div className="space-y-3 text-sm font-bold text-muted-foreground">
@@ -129,7 +140,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             </p>
             <p className="flex gap-2">
               <Clock className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
-              {business.shortHours}
+              {t("hours.short")}
             </p>
             <p className="flex gap-2 break-all">
               <Mail className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
@@ -138,6 +149,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
           </div>
         </div>
       </aside>
-    </div>
+    </div>,
+    document.body,
   );
 }

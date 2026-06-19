@@ -1,37 +1,57 @@
+"use client";
+
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Utensils } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { useI18n } from "@/lib/i18n";
 import { menuHighlights } from "@/lib/site";
 
 export function MenuHighlights() {
+  const { t } = useI18n();
+
   return (
-    <section className="section-pad bg-muted/55">
-      <div className="container-page">
+    <section className="section-pad relative bg-[#cce8ec]">
+      <div className="confetti-field absolute inset-0 opacity-[0.08]" aria-hidden="true" />
+      <div className="container-page relative">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading
-            eyebrow="A menu full of Mexican favorites"
-            title="Tacos, burritos, tamales, seafood, pupusas and more."
-            description="Whether you are stopping in for lunch, picking up dinner or feeding the whole family, there is something waiting for you at La Gaviota."
+            eyebrow={t("menuHighlights.eyebrow")}
+            title={t("menuHighlights.title")}
+            description={t("menuHighlights.description")}
           />
           <Link
             href="/menu"
             className="inline-flex min-h-11 items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-black text-primary-foreground hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
           >
-            View Full Menu
+            {t("cta.viewFullMenu")}
             <ArrowRight className="size-4" aria-hidden="true" />
           </Link>
         </div>
-        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {menuHighlights.map((item) => (
-            <div
-              key={item}
-              className="flex min-h-20 items-center gap-3 rounded-lg border bg-card p-4"
+            <Link
+              key={item.name}
+              href="/menu"
+              className="group overflow-hidden rounded-lg border bg-card shadow-sm transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
             >
-              <span className="grid size-11 shrink-0 place-items-center rounded-md bg-secondary text-secondary-foreground">
-                <Utensils className="size-5" aria-hidden="true" />
-              </span>
-              <p className="text-lg font-black">{item}</p>
-            </div>
+              <div className="relative h-44">
+                <span className="absolute inset-x-0 top-0 z-10 h-1 bg-[linear-gradient(90deg,#2f7d32,#ffffff,#c13f4f)]" aria-hidden="true" />
+                <Image
+                  src={item.image}
+                  alt={`${item.name} from La Gaviota menu`}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                />
+              </div>
+              <div className="flex items-center justify-between gap-3 p-4">
+                <p className="text-lg font-black">{item.name}</p>
+                <p className="rounded-md bg-secondary px-2.5 py-1 text-sm font-black text-secondary-foreground">
+                  {item.price}
+                </p>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -1,25 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fffaf0;
-  --foreground: #251713;
+  --background: #fafaf8;
+  --foreground: #0d1f26;
   --card: #ffffff;
-  --card-foreground: #251713;
+  --card-foreground: #0d1f26;
   --popover: #ffffff;
-  --popover-foreground: #251713;
-  --primary: #a65f3f;
-  --primary-foreground: #fffaf0;
-  --secondary: #ffc857;
-  --secondary-foreground: #251713;
-  --muted: #f1ead9;
-  --muted-foreground: #655447;
-  --accent: #087f8c;
-  --accent-foreground: #f7fffb;
+  --popover-foreground: #0d1f26;
+  --primary: #005f73;
+  --primary-foreground: #ffffff;
+  --secondary: #d97706;
+  --secondary-foreground: #1a1a1a;
+  --muted: #e0f2f4;
+  --muted-foreground: #2a5a68;
+  --accent: #e07850;
+  --accent-foreground: #ffffff;
   --destructive: #9b3a2f;
-  --destructive-foreground: #fffaf0;
-  --border: #e8dcc7;
-  --input: #e8dcc7;
-  --ring: #087f8c;
+  --destructive-foreground: #ffffff;
+  --border: #b8dde3;
+  --input: #b8dde3;
+  --ring: #005f73;
+  --costa: #005f73;
+  --costa-light: #b8e6ec;
+  --nopal: #2f7d32;
+  --hibiscus: #c13f4f;
   --radius: 0.5rem;
 }
 
@@ -59,7 +63,11 @@ html {
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at 18px 18px, rgba(0, 95, 115, 0.04) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 42px 34px, rgba(217, 119, 6, 0.035) 0 1px, transparent 1.5px),
+    linear-gradient(180deg, #fafaf8 0%, #f4f9fa 42%, #eef6f7 100%);
+  background-size: 68px 68px, 92px 92px, auto;
   color: var(--foreground);
   font-family:
     Arial,
@@ -90,14 +98,81 @@ select {
 }
 
 .food-shadow {
-  box-shadow: 0 24px 70px rgba(37, 23, 19, 0.15);
+  box-shadow: 0 24px 70px rgba(36, 20, 15, 0.18);
 }
 
 .grain {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 22px 22px;
+    radial-gradient(circle at 20% 25%, rgba(250, 250, 248, 0.18) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 72% 58%, rgba(217, 119, 6, 0.16) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 42% 78%, rgba(0, 95, 115, 0.12) 0 1px, transparent 1.5px);
+  background-size: 42px 42px, 56px 56px, 74px 74px;
+}
+
+.coastal-hero {
+  background:
+    linear-gradient(135deg, rgba(13, 31, 38, 0.95) 0%, rgba(0, 50, 70, 0.90) 42%, rgba(0, 95, 115, 0.85) 100%),
+    radial-gradient(circle at 78% 16%, rgba(217, 119, 6, 0.38), transparent 28%),
+    linear-gradient(180deg, #0d1f26 0%, #005f73 100%);
+}
+
+.papel-picado {
+  height: 20px;
+  background:
+    radial-gradient(circle at 50% 58%, rgba(255, 247, 232, 0.68) 0 2px, transparent 2.4px),
+    radial-gradient(circle at 24% 58%, rgba(255, 247, 232, 0.5) 0 1.5px, transparent 1.9px),
+    radial-gradient(circle at 76% 58%, rgba(255, 247, 232, 0.5) 0 1.5px, transparent 1.9px),
+    linear-gradient(90deg, #c13f4f 0 16.66%, #d97706 16.66% 33.33%, #005f73 33.33% 50%, #ffffff 50% 66.66%, #2f7d32 66.66% 83.33%, #0d1f26 83.33% 100%);
+  background-size: 40px 100%, 40px 100%, 40px 100%, 240px 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 68%, 96% 100%, 92% 68%, 88% 100%, 84% 68%, 80% 100%, 76% 68%, 72% 100%, 68% 68%, 64% 100%, 60% 68%, 56% 100%, 52% 68%, 48% 100%, 44% 68%, 40% 100%, 36% 68%, 32% 100%, 28% 68%, 24% 100%, 20% 68%, 16% 100%, 12% 68%, 8% 100%, 4% 68%, 0 100%);
+  opacity: 0.94;
+  filter: drop-shadow(0 2px 1px rgba(36, 20, 15, 0.12));
+}
+
+.confetti-field {
+  background-image: url("data:image/svg+xml,%3Csvg width='360' height='360' viewBox='0 0 360 360' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke-linecap='round' stroke-width='2.4' opacity='.66'%3E%3Cpath d='M28 36h9' stroke='%23d97706' transform='rotate(18 32 36)'/%3E%3Cpath d='M132 48h10' stroke='%23fafaf8' transform='rotate(-24 137 48)'/%3E%3Cpath d='M236 42h8' stroke='%23005f73' transform='rotate(88 240 42)'/%3E%3Cpath d='M316 76h11' stroke='%232f7d32' transform='rotate(22 321 76)'/%3E%3Cpath d='M62 146h8' stroke='%23e07850' transform='rotate(-12 66 146)'/%3E%3Cpath d='M190 156h10' stroke='%23d97706' transform='rotate(34 195 156)'/%3E%3Cpath d='M280 188h8' stroke='%23fafaf8' transform='rotate(74 284 188)'/%3E%3Cpath d='M88 252h11' stroke='%23005f73' transform='rotate(10 94 252)'/%3E%3Cpath d='M168 294h8' stroke='%232f7d32' transform='rotate(-38 172 294)'/%3E%3Cpath d='M304 300h8' stroke='%23e07850' transform='rotate(28 308 300)'/%3E%3Cpath d='M216 232c5 0 8 3 8 8' stroke='%232f7d32'/%3E%3Cpath d='M126 210c5 0 8 3 8 8' stroke='%23005f73'/%3E%3C/g%3E%3Cg fill='%23d97706' opacity='.5'%3E%3Ccircle cx='46' cy='214' r='1.4'/%3E%3Ccircle cx='252' cy='122' r='1.3'/%3E%3Ccircle cx='332' cy='226' r='1.4'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 360px 360px;
+}
+
+.fiesta-rosette {
+  width: 54px;
+  height: 22px;
+  background:
+    radial-gradient(circle at 50% 50%, currentColor 0 2px, transparent 2.5px),
+    radial-gradient(circle at 22% 50%, currentColor 0 1.5px, transparent 2px),
+    radial-gradient(circle at 78% 50%, currentColor 0 1.5px, transparent 2px),
+    linear-gradient(90deg, transparent 0 11px, currentColor 11px 43px, transparent 43px 100%);
+  color: var(--secondary);
+  opacity: 0.9;
+  mask-image: radial-gradient(circle at 50% 100%, transparent 0 7px, #000 7.5px);
+}
+
+.papel-cutout {
+  position: relative;
+  overflow: hidden;
+}
+
+.papel-cutout::before {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 64px;
+  height: 54px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 46%, transparent 0 7px, currentColor 7.5px 8.8px, transparent 9.2px),
+    radial-gradient(circle at 24% 38%, transparent 0 3px, currentColor 3.5px 4.6px, transparent 5px),
+    radial-gradient(circle at 76% 38%, transparent 0 3px, currentColor 3.5px 4.6px, transparent 5px),
+    linear-gradient(currentColor, currentColor);
+  color: rgba(182, 66, 47, 0.16);
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 88% 100%, 76% 78%, 64% 100%, 52% 78%, 40% 100%, 28% 78%, 16% 100%, 0 78%);
+}
+
+.coastal-wave {
+  background:
+    radial-gradient(65% 120% at 50% -35%, rgba(0, 95, 115, 0.22) 0 54%, transparent 55%),
+    linear-gradient(180deg, rgba(250, 250, 248, 0) 0%, #fafaf8 52%, #fafaf8 100%);
 }
 
 .skip-link {

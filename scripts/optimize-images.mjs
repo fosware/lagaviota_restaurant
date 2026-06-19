@@ -19,6 +19,22 @@ const images = [
   ["birria.jpg", "birria"],
   ["burrito-smothered.jpg", "burrito-smothered"],
   ["salsa-bar.jpg", "salsa-bar"],
+  ["siete-mares.jpg", "siete-mares"],
+  ["pambazo.jpg", "pambazo"],
+  ["tostadas-de-asada.jpg", "tostadas-de-asada"],
+  ["gorditas-de-asada.jpg", "gorditas-de-asada"],
+  ["enchiladas-de-pollo.jpg", "enchiladas-de-pollo"],
+  ["desayuno-salvadoreno.jpg", "desayuno-salvadoreno"],
+  ["empanadas-de-camaron.jpg", "empanadas-de-camaron"],
+  ["ceviche-de-camaron.jpg", "ceviche-de-camaron"],
+  ["coctel-de-camarones.jpg", "coctel-de-camarones"],
+  ["camarones-empanizados.jpg", "camarones-empanizados"],
+  ["caldo-de-res.jpg", "caldo-de-res"],
+  ["camarones-al-mojo-de-ajo.jpg", "camarones-al-mojo-de-ajo"],
+  ["caldo-de-camaron-y-pescado.jpg", "caldo-de-camaron-y-pescado"],
+  ["chilaquiles.jpg", "chilaquiles"],
+  ["mojarra-frita.jpg", "mojarra-frita"],
+  ["carne-asada.jpg", "carne-asada"],
 ];
 
 await fs.mkdir(outputDir, { recursive: true });

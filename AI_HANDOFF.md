@@ -298,19 +298,17 @@ Mantener:
 
 No depender solo del color para indicar estado.
 
-## Formulario de Catering
+## Catering y pedidos
 
-Existe `CateringInquiryForm`, pero está marcado como no funcional.
+`CateringInquiryForm` ya no funciona como formulario pendiente de endpoint. Ahora es un bloque comercial para planear catering por teléfono.
 
-Motivo:
+`/order` existe como flujo propio para pedidos para recoger. El formulario no procesa pagos ni confirma automáticamente; arma el pedido y pide al comensal llamar para confirmar horario.
 
-- No hay endpoint validado.
-- No está confirmado si el restaurante acepta solicitudes por email o solo teléfono.
+No convertir estos flujos en checkout real sin:
 
-No hacerlo funcional sin:
-
-- Endpoint validado, o
-- Confirmación explícita de envío por email/servicio tercero.
+- Endpoint validado,
+- confirmación explícita de envío por email/servicio tercero, o
+- integración POS/backend aprobada.
 
 ## Cómo Continuar el Trabajo
 
@@ -404,6 +402,95 @@ Formato recomendado:
 - Verificación:
   - `npm run typecheck` OK.
   - `npm run build` OK.
+
+### 2026-06-19 - Ajuste visual tras revisión en servidor local
+
+- Cambios realizados:
+  - Se revisó `http://localhost:3000` con Firefox headless usando capturas desktop y móvil.
+  - Se corrigió el hero para que no dependa de `88svh`; ahora usa mínimos responsivos más estables y evita huecos excesivos en pantallas altas/capturas largas.
+  - Se forzó `loading="eager"` en la imagen principal de Catering para evitar que el bloque aparezca vacío durante revisión/carga temprana.
+- Archivos principales tocados:
+  - `components/sections/hero-section.tsx`
+  - `components/sections/catering-section.tsx`
+- Verificación:
+  - `npm run typecheck` OK.
+  - `npm run build` OK.
+
+### 2026-06-19 - Logo real, favicon e iconos
+
+- Cambios realizados:
+  - Se revisó `public/images/propuesta-logo.png` como propuesta de marca.
+  - Se separó el símbolo de la gaviota del nombre para usar el mark en header/favicon y mantener el texto del nombre como HTML legible.
+  - Se generaron assets optimizados del logo:
+    - `public/images/la-gaviota-mark.png`
+    - `public/images/la-gaviota-mark.webp`
+    - `public/images/la-gaviota-logo-full.webp`
+  - Se regeneraron favicons e iconos de app con fondo crema:
+    - `public/favicon.ico`
+    - `public/favicon.svg`
+    - `public/favicon-16x16.png`
+    - `public/favicon-32x32.png`
+    - `public/favicon-48x48.png`
+    - `public/apple-touch-icon.png`
+    - `public/icon-192.png`
+    - `public/icon-512.png`
+    - `public/site.webmanifest`
+  - Header ahora usa el símbolo real de la gaviota y conserva `La Gaviota` / `Mexican Restaurant` como texto separado.
+- Archivos principales tocados:
+  - `components/layout/header.tsx`
+  - `app/layout.tsx`
+  - `app/globals.css`
+  - `public/favicon.svg`
+  - `public/site.webmanifest`
+- Verificación:
+  - Capturas con Firefox headless en desktop y móvil.
+  - `npm run typecheck` OK.
+  - `npm run build` OK.
+
+### 2026-06-19 - Corrección de posicionamiento culinario
+
+- Cambios realizados:
+  - Se revisó el sitio original y se confirmó que la promesa pública es `authentic Mexican and Central America food`, no un restaurante principalmente costero.
+  - Se cambió el hero de `Coastal flavor...` a una promesa fiel: comida mexicana y centroamericana en Denver.
+  - Se mantuvieron mariscos como parte apetecible del menú, pero no como eje principal de marca.
+  - Se actualizó copy visible, footer, about, catering, FAQ, SEO base y metadatos de páginas internas.
+  - `SchemaRestaurant` ahora declara `Mexican`, `Central American`, `Salvadoran` y `Honduran` en `servesCuisine`.
+- Archivos principales tocados:
+  - `lib/i18n.tsx`
+  - `lib/site.ts`
+  - `components/seo/schema-restaurant.tsx`
+  - `app/layout.tsx`
+  - `app/about/page.tsx`
+  - `app/catering/page.tsx`
+  - `app/gallery/page.tsx`
+- Verificación:
+  - Capturas con Firefox headless en desktop y móvil del hero actualizado.
+  - `npm run typecheck` OK.
+  - `npm run build` OK.
+
+### 2026-06-19 - Revisión de foto principal y muestras de menú
+
+- Cambios realizados:
+  - Se reemplazó la imagen principal del hero de `siete-mares.webp` a `fajitas-combinadas.webp`.
+  - Motivo: `siete mares` comunica demasiado mariscos/costa; `fajitas combinadas` representa mejor una mesa amplia de comida mexicana y centroamericana.
+  - Las muestras del hero ahora son:
+    - `Tostadas $3.99`
+    - `Pupusas $2.99`
+    - `7 Mares $18.39`
+  - Se compactaron las muestras del hero en móvil para evitar que la barra fija inferior tape el contenido.
+  - Se revisaron asociaciones de imágenes del menú:
+    - Se quitó la foto de `Tacos La Gaviota` porque no hay foto clara de tacos y usar tostadas resultaba engañoso.
+    - `Breakfast Burritos` usa ahora `burrito-smothered.webp`, más cercano que chilaquiles.
+    - `Extras` y `Postres` quedan sin foto al no tener una imagen honesta de la categoría.
+  - `menuHighlights` ahora evita muestras con imagen/nombre inconsistentes y prioriza fajitas, pupusas, tostadas, tortas, 7 mares y chilaquiles.
+- Archivos principales tocados:
+  - `components/sections/hero-section.tsx`
+  - `lib/i18n.tsx`
+  - `lib/site.ts`
+- Verificación:
+  - Capturas con Firefox headless de home desktop/móvil y `/menu`.
+  - `npm run typecheck` OK.
+  - `npm run build` OK.
 - Pendientes nuevos:
   - Validar fotos, menú, precios y datos comerciales antes de publicar.
 
@@ -442,8 +529,210 @@ Formato recomendado:
 - Verificación:
   - `npm run typecheck` OK.
   - `npm run build` OK.
+
   - Capturas desktop/móvil de `/menu` y `/gallery` revisadas.
 - Pendientes nuevos:
   - La carta aún puede mejorar si se consiguen precios y descripciones oficiales.
   - Galería mejoraría mucho con selección fotográfica aprobada y fotos más apetitosas/actuales.
 
+### 2026-06-19 - Facelift UX/UI y limpieza de señales internas
+
+- Cambios realizados:
+  - Se cambió la imagen principal del hero de salsa bar a un plato más apetitoso.
+  - Se simplificó el hero para reducir sensación de dashboard en el primer viewport.
+  - Se compactaron las acciones rápidas y se bajó el uso dominante del turquesa.
+  - Se eliminaron textos públicos tipo borrador, publicación pendiente o notas internas.
+  - Se reemplazó el formulario de catering pendiente por un bloque comercial para planear catering por teléfono.
+- Archivos tocados:
+  - `components/sections/hero-section.tsx`
+  - `components/sections/quick-actions.tsx`
+  - `components/sections/catering-inquiry-form.tsx`
+  - `components/sections/carryout-section.tsx`
+  - `components/sections/about-section.tsx`
+  - `components/sections/family-packs-section.tsx`
+  - `app/menu/page.tsx`
+  - `app/gallery/page.tsx`
+  - `components/layout/footer.tsx`
+  - `lib/site.ts`
+- Verificación:
+  - `npm run typecheck` OK.
+  - `npm run build` OK.
+- Pendientes nuevos:
+  - Revisar visualmente home, menu y catering en móvil/escritorio cuando el navegador headless esté disponible o desde el servidor local del usuario.
+
+### 2026-06-19 - Revolución de carta, fotos y ambiente
+
+- Cambios realizados:
+  - Se revisó el sitio original y se integró una carta extensa con categorías, precios y nombres curados desde el menú existente.
+  - Se probó inicialmente el enlace de pedido online por Clover como CTA secundario; después se reemplazó por `/order` porque el enlace externo no era confiable.
+  - Se descargaron fotos adicionales del sitio original y se generaron versiones WebP/AVIF.
+  - Se rediseñó el hero para sentirse más La Gaviota, más festivo y menos genérico.
+  - Se rediseñó `/menu` como carta amplia con stats, navegación sticky, fotos por categoría, highlights y precios visibles.
+  - Se reforzó el mapa interactivo con encabezado visible de Google Maps y dirección.
+  - Se amplió la galería y se asociaron fotos a platillos reales del menú.
+- Archivos tocados:
+  - `lib/site.ts`
+  - `app/menu/page.tsx`
+  - `app/page.tsx`
+  - `app/gallery/page.tsx`
+  - `components/sections/hero-section.tsx`
+  - `components/sections/menu-category.tsx`
+  - `components/sections/menu-highlights.tsx`
+  - `components/sections/quick-actions.tsx`
+  - `components/sections/contact-section.tsx`
+  - `components/sections/map-embed.tsx`
+  - `components/layout/footer.tsx`
+  - `scripts/optimize-images.mjs`
+  - `public/source-images/*`
+  - `public/images/*`
+- Verificación:
+  - `npm run optimize:images` OK.
+  - `npm run typecheck` OK.
+  - `npm run build` OK.
+- Pendientes nuevos:
+  - Confirmar precios antes de publicación final, porque vienen del sitio actual y podrían estar desactualizados.
+  - Confirmar permiso final de uso para las fotos del sitio original.
+  - Revisar visualmente en navegador real móvil/escritorio.
+
+### 2026-06-19 - Multilenguaje completo EN/ES en UI
+
+- Cambios realizados:
+  - Se agregó un provider de idioma con persistencia en `localStorage` y actualización de `document.documentElement.lang`.
+  - Se centralizó la copy visible del sitio en `lib/i18n.tsx` para inglés y español.
+  - Se eliminaron textos bilingües mezclados como `Catering for your event / Catering para tu evento`.
+  - Se migraron header, drawer móvil, footer, CTA móvil, hero, home, contacto, galería, catering, FAQ y menú a textos según idioma elegido.
+  - Se tradujeron labels de navegación, CTAs, notas, horarios, FAQ, captions y categorías del menú.
+  - Se conservan nombres de platillos y precios como parte de la carta original.
+- Archivos principales tocados:
+  - `lib/i18n.tsx`
+  - `app/layout.tsx`
+  - `app/menu/page.tsx`
+  - `app/gallery/page.tsx`
+  - `components/layout/*`
+  - `components/sections/*`
+- Verificación:
+  - `npm run typecheck` OK.
+  - `npm run build` OK.
+- Pendientes nuevos:
+  - Revisar visualmente el cambio de idioma en navegador real, especialmente en móvil y en la carta larga.
+  - Si se quiere SEO bilingüe real, el siguiente paso sería crear rutas localizadas (`/es`, `/en`) y metadata por idioma.
+
+### 2026-06-19 - Formulario propio para ordenar
+
+- Cambios realizados:
+  - Se reemplazaron los CTAs que apuntaban al enlace externo de Clover por `/order`.
+  - Se creó una página interna de pedido para recoger con formulario bilingüe.
+  - El formulario recopila nombre, teléfono, hora deseada, platillos y notas.
+  - Al enviar, prepara un correo al restaurante y refuerza que se debe llamar para confirmar disponibilidad y tiempo.
+  - Se agregó `/order` al sitemap.
+- Archivos principales tocados:
+  - `app/order/page.tsx`
+  - `components/sections/order-form.tsx`
+  - `components/sections/hero-section.tsx`
+  - `components/sections/quick-actions.tsx`
+  - `components/sections/menu-page-content.tsx`
+  - `components/layout/footer.tsx`
+  - `lib/i18n.tsx`
+  - `lib/site.ts`
+  - `app/sitemap.ts`
+- Verificación:
+  - `npm run typecheck` OK.
+  - `npm run build` OK.
+
+### 2026-06-19 - Pulido de copy y drawer móvil
+
+- Cambios realizados:
+  - Se revisó la copy visible para eliminar textos que sonaban internos o técnicos.
+  - Se reemplazaron frases como `Formulario del sitio`, `solicitud`, `checkout`, `request`, `sitio anterior` y explicaciones de implementación.
+  - La copy de `/order` ahora habla al comensal: antojo, pedido para recoger, notas para cocina y llamada de confirmación.
+  - El menú hamburguesa móvil se movió a un portal en `document.body` para funcionar como overlay real y evitar que empuje secciones o quede oculto detrás del header sticky.
+  - Se actualizó documentación base (`instructions.md` y `README.md`) con i18n completo, `/order` y comportamiento actual del drawer.
+- Archivos principales tocados:
+  - `lib/i18n.tsx`
+  - `app/order/page.tsx`
+  - `components/sections/order-form.tsx`
+  - `components/layout/mobile-drawer.tsx`
+  - `instructions.md`
+  - `README.md`
+  - `AI_HANDOFF.md`
+- Verificación:
+  - `npm run typecheck` OK tras copy y drawer.
+  - `npm run build` OK tras mover el drawer a portal.
+
+### 2026-06-19 - Identidad visual costa mexicana
+
+- Cambios realizados:
+  - Se tomó la idea del sitio original de playa/gaviota y se reinterpretó sin copiar la plantilla.
+  - Se cambió la paleta base hacia chile seco, maíz, turquesa costa, nopal y crema cálida.
+  - Se agregó un hero con atmósfera costera, papel picado sobrio, confeti tricolor sutil y ola inferior.
+  - Se creó una marca de gaviota en CSS para el logo del header sin caer en ilustración infantil.
+  - Se ajustaron acciones rápidas y menú destacado con acentos tricolor discretos.
+  - Se actualizó la promesa del hero para mencionar sabor de costa, tacos, mariscos y comida para compartir.
+- Archivos principales tocados:
+  - `app/globals.css`
+  - `components/layout/header.tsx`
+  - `components/sections/hero-section.tsx`
+  - `components/sections/quick-actions.tsx`
+  - `components/sections/menu-highlights.tsx`
+  - `lib/i18n.tsx`
+- Verificación:
+  - `npm run typecheck` OK.
+  - `npm run build` OK.
+- Pendientes nuevos:
+  - Revisar visualmente en móvil/escritorio para asegurar que el papel picado y confeti se sienten festivos pero no recargados.
+
+### 2026-06-19 - Continuidad visual después de Catering
+
+- Cambios realizados:
+  - Se extendió la identidad costa mexicana más allá del hero y `Food for gatherings`.
+  - Home ahora mantiene el lenguaje visual en Carryout, Galería, About, Contacto, FAQ y Footer.
+  - Se agregaron fondos crema cálidos, confeti tricolor sutil, olas costeras, tiras tipo papel picado y acentos tricolor en tarjetas.
+  - Contact card, horarios, mapa, galería, paquetes familiares, formulario de catering y formulario de pedido quedaron alineados con la nueva dirección visual.
+  - Las páginas internas `/gallery`, `/contact`, `/catering` y `/order` recibieron wrappers y tarjetas coherentes con la marca.
+- Archivos principales tocados:
+  - `components/sections/carryout-section.tsx`
+  - `components/sections/home-gallery-section.tsx`
+  - `components/sections/about-section.tsx`
+  - `components/sections/contact-section.tsx`
+  - `components/sections/faq-section.tsx`
+  - `components/layout/footer.tsx`
+  - `components/sections/contact-card.tsx`
+  - `components/sections/hours-card.tsx`
+  - `components/sections/map-embed.tsx`
+  - `components/sections/gallery-grid.tsx`
+  - `components/sections/family-packs-section.tsx`
+  - `components/sections/catering-inquiry-form.tsx`
+  - `components/sections/order-form.tsx`
+  - `components/sections/gallery-page-content.tsx`
+  - `app/contact/page.tsx`
+  - `app/catering/page.tsx`
+- Verificación:
+  - `npm run typecheck` OK.
+  - `npm run build` OK.
+
+### 2026-06-19 - Motivos festivos finos sin fondo romboide
+
+- Cambios realizados:
+  - Se eliminó la lectura de fondo romboide/diagonal que parecía malla ciclónica.
+  - El patrón global de `grain` dejó de usar cruces lineales y ahora funciona como puntos/sutilezas de papel.
+  - El `confetti-field` se rehizo como SVG fino y espaciado, con piezas pequeñas tipo confeti tricolor.
+  - Se bajaron opacidades del confeti en hero, acciones rápidas, menú destacado, carryout y footer para que no compita con texto ni comida.
+  - El papel picado superior se refinó con perforaciones pequeñas y caída más ligera.
+  - Los encabezados de sección recibieron un acento pequeño tipo papel recortado (`fiesta-rosette`).
+  - Algunas tarjetas clave ahora tienen un detalle sutil de papel picado recortado (`papel-cutout`) en la esquina.
+- Archivos principales tocados:
+  - `app/globals.css`
+  - `components/ui/section-heading.tsx`
+  - `components/sections/hero-section.tsx`
+  - `components/sections/quick-actions.tsx`
+  - `components/sections/menu-highlights.tsx`
+  - `components/sections/carryout-section.tsx`
+  - `components/layout/footer.tsx`
+  - `components/sections/contact-card.tsx`
+  - `components/sections/catering-inquiry-form.tsx`
+  - `components/sections/family-packs-section.tsx`
+- Verificación:
+  - `npm run typecheck` OK.
+  - `npm run build` OK.
+  - Captura desktop local revisada: `/tmp/gaviota-shots/patterns-home-desktop-fixed2.png`.
+  - La captura móvil con Firefox headless se colgó antes de terminar; no se dejó proceso vivo.

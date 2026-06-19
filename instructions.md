@@ -33,7 +33,7 @@ El resultado debe sentirse como un restaurante mexicano real de barrio: cálido,
 **Experiencia confirmada:** más de 15 años de experiencia en catering/restaurante local y familiar.
 **Métodos de pago visibles:** Visa, MasterCard, American Express, Discover y cash.
 **Sitio actual:** https://www.lagaviotadenver.com/
-**Idioma del sitio recomendado:** inglés como idioma principal, español como idioma secundario o microcopy bilingüe en puntos clave.
+**Idioma del sitio recomendado:** inglés y español separados por selector de idioma. No mezclar ambos idiomas en la misma frase visible.
 
 ### Diagnóstico del sitio actual
 
@@ -153,17 +153,14 @@ Evitar un diseño de “fine dining”. La Gaviota debe sentirse como un lugar d
 **Idioma principal del sitio:** inglés.
 **Idioma secundario recomendado:** español.
 
-Denver tiene un público mixto. El sitio debe estar pensado principalmente para búsquedas en inglés, pero con detalles en español que refuercen autenticidad y cercanía.
+Denver tiene un público mixto. El sitio debe estar pensado principalmente para búsquedas en inglés, pero debe permitir cambiar toda la UI visible a español sin mezclar idiomas dentro del mismo texto.
 
 ### Implementación recomendada
 
-* MVP: inglés principal con frases clave en español.
-* Versión ideal: i18n inglés/español.
-* CTAs bilingües en zonas importantes:
-
-  * “Call to Order / Llama para ordenar”
-  * “Catering for Your Event / Catering para tu evento”
-  * “View Menu / Ver menú”
+* MVP actual: i18n inglés/español con selector persistente.
+* No usar CTAs bilingües mezclados tipo “Call to Order / Llama para ordenar”.
+* Cada idioma debe tener copy propia, natural y dirigida al comensal.
+* Evitar tono técnico o interno como “formulario del sitio”, “solicitud”, “checkout”, “request”, “sitio anterior” o explicaciones de implementación.
 
 ---
 
@@ -178,6 +175,7 @@ Arquitectura recomendada para MVP:
 5. **Gallery**
 6. **About**
 7. **Contact**
+8. **Order / Para recoger**
 
 Para el MVP se puede trabajar como sitio one-page con secciones ancladas, pero la estructura técnica debe permitir crecer a páginas internas.
 
@@ -190,10 +188,13 @@ Para el MVP se puede trabajar como sitio one-page con secciones ancladas, pero l
 * About
 * Contact
 * CTA destacado: Call 303-368-9941
+* CTA secundario: Order for Pickup / Ordenar para recoger
 
 ### Navegación móvil
 
 Debe tener drawer real con overlay, botón de cierre, cierre al tocar backdrop y cierre al navegar. Incluir idioma y CTA de llamada dentro del drawer.
+
+Nota técnica actual: el drawer móvil debe montarse como overlay real fuera del `header` mediante portal a `document.body` para evitar que empuje secciones o quede oculto detrás del header sticky.
 
 ---
 
@@ -215,7 +216,8 @@ El MVP debe incluir:
 12. Diseño responsive mobile-first.
 13. Accesibilidad básica.
 14. Reemplazo total de textos de plantilla.
-15. Preparación para i18n inglés/español.
+15. i18n inglés/español completo para UI visible.
+16. Página propia `/order` para pedidos para recoger cuando no exista plataforma externa confiable.
 
 ---
 
@@ -274,6 +276,7 @@ From tacos and tamales to seafood, pupusas and party catering, La Gaviota Mexica
 
 **CTA:** Call to Order
 **CTA secundario:** View Menu
+**CTA pedido:** Order for Pickup
 **CTA catering:** Get Catering
 
 ### Variante con más sabor
@@ -306,13 +309,27 @@ Craving tacos, tamales or a full plate from La Gaviota? Call us to pre-order you
 
 La Gaviota Mexican Restaurant serves Denver with fresh ingredients, family recipes and a menu made for every craving — from quick tacos to party catering. Stop by, watch live soccer on flat-screen TVs, enjoy the salsa bar, or call ahead for carryout.
 
-### Microcopy bilingüe
+### Microcopy e idioma
 
-* Fresh Mexican food / Comida mexicana fresca
-* Call to order / Llama para ordenar
-* Catering for your event / Catering para tu evento
-* Family recipes / Recetas familiares
-* Dine in or carryout / Come aquí o pide para llevar
+No mezclar inglés y español en la misma frase visible. Usar el selector de idioma para separar versiones completas.
+
+Ejemplos de tono correcto:
+
+* English: “Tell us what you are craving and when you want to pick it up.”
+* Español: “Dinos qué se te antoja y a qué hora quieres recoger.”
+* English: “What can we make for you?”
+* Español: “¿Qué se te antoja?”
+* English: “Bring the party. We will bring the food.”
+* Español: “Trae la fiesta. Nosotros ponemos la comida.”
+
+Evitar textos dirigidos al desarrollador o al sistema:
+
+* “Formulario del sitio”
+* “This form prepares a request”
+* “No es un checkout”
+* “Solicitud”
+* “Desde el sitio web”
+* “Sitio anterior”
 
 ---
 
@@ -384,7 +401,7 @@ El sitio debe captar:
 2. Ve el hero con teléfono, menú y catering.
 3. Revisa platillos principales.
 4. Toca el botón de llamada.
-5. Pide comida o pregunta por catering.
+5. Pide comida por teléfono, usa `/order` para armar pedido para recoger, o pregunta por catering.
 6. Consulta ubicación/mapa.
 7. Llega al restaurante o agenda pedido.
 
@@ -516,6 +533,7 @@ Authentic Mexican Food & Catering in Denver
   * /gallery
   * /about
   * /contact
+  * /order
 
 ### Alt text sugerido
 

@@ -2,7 +2,11 @@ import type { MetadataRoute } from "next";
 import { business, navItems } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [...navItems, { label: "Family Packs", href: "/family-packs" }];
+  const routes = [
+    ...navItems,
+    { label: "Order", href: business.orderPath },
+    { label: "Family Packs", href: "/family-packs" },
+  ];
 
   return routes.map((item) => ({
     url: `${business.url}${item.href}`,

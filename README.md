@@ -33,6 +33,7 @@ npm run build
 - `/gallery`
 - `/about`
 - `/contact`
+- `/order`
 
 ## Included
 
@@ -42,11 +43,14 @@ npm run build
 - `sitemap.xml`
 - `robots.txt`
 - Responsive header with mobile drawer
+- Mobile drawer mounted through a body portal so it behaves as a true overlay
 - Sticky mobile CTA: Call, Menu, Catering
 - Google Maps embed without API key
-- Prepared, non-functional catering form until endpoint is confirmed
+- Full English/Spanish UI copy with persistent language toggle
+- In-site pickup order form that opens a prepared email and asks users to call to confirm
+- Catering inquiry content focused on phone planning
 - SVG favicon plus generated ICO
-- English-first copy with Spanish microcopy
+- Restaurant-facing copy written for guests, not internal implementation notes
 
 ## Before publication
 
@@ -59,7 +63,9 @@ npm run build
 - Confirm whether soccer, salsa bar, micheladas and beer-to-go are still current.
 - Confirm party package formats, prices, deposits and minimum notice.
 - Confirm whether there are official social profiles or delivery platforms.
-- Connect the catering form to a validated endpoint or remove it.
+- Decide whether `/order` should remain email-based, become phone-only, or connect to a real backend/POS.
+- Confirm the restaurant wants to receive pickup order emails at the listed Gmail address.
+- If a delivery/POS platform becomes reliable, decide whether to keep `/order` or link out.
 
 ## Image note
 

@@ -1,24 +1,32 @@
+"use client";
+
 import { Clock } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { business } from "@/lib/site";
+import { useI18n } from "@/lib/i18n";
 
 export function HoursCard() {
+  const { t } = useI18n();
+
   return (
-    <Card>
+    <Card className="relative overflow-hidden bg-card/96 shadow-sm">
+      <div
+        className="absolute inset-x-0 top-0 h-1.5 bg-[linear-gradient(90deg,var(--accent),var(--secondary),var(--primary))]"
+        aria-hidden="true"
+      />
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Clock className="size-5 text-primary" aria-hidden="true" />
-          Business Hours
+          {t("contact.hoursTitle")}
         </CardTitle>
       </CardHeader>
       <CardContent>
         <dl className="space-y-3 text-sm">
           <div className="flex items-center justify-between gap-4 border-b pb-3">
-            <dt className="font-black">Monday-Sunday</dt>
-            <dd className="font-bold text-muted-foreground">9:00 am-7:00 pm</dd>
+            <dt className="font-black">{t("hours.days")}</dt>
+            <dd className="font-bold text-muted-foreground">{t("hours.time")}</dd>
           </div>
-          <div className="rounded-md bg-muted p-3 text-sm font-bold leading-6 text-muted-foreground">
-            Call ahead for carryout, catering questions and party packages.
+          <div className="rounded-md bg-[#fde9b8] p-3 text-sm font-bold leading-6 text-muted-foreground">
+            {t("contact.hoursNote")}
           </div>
         </dl>
       </CardContent>
