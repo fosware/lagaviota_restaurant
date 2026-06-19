@@ -84,7 +84,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "quick.menu.copy": "Tacos, pupusas, mariscos, breakfast, tortas and prices.",
     "quick.online.title": "Order Pickup",
     "quick.online.copy": "Tell us what you are craving and when you want to pick it up.",
-    "quick.catering.title": "Food for Gatherings",
+    "quick.catering.title": "Catering",
     "quick.catering.copy": "Party trays and warm food for birthdays, graduations and family tables.",
     "quick.directions.title": "Get Directions",
     "quick.directions.copy": "Find La Gaviota at 2280 S Quebec in Denver.",
@@ -95,7 +95,7 @@ const dictionaries: Record<Language, Dictionary> = {
     "menuHighlights.description":
       "Tacos, pupusas, tortas, mariscos, plates, breakfast, postres and drinks now have a real place to live.",
 
-    "catering.eyebrow": "Food for gatherings",
+    "catering.eyebrow": "Catering",
     "catering.title": "Bring the party. We will bring the food.",
     "catering.description":
       "La Gaviota prepares Mexican and Central American dishes for parties, anniversaries, graduations, birthdays and special occasions. Call and ask about catering or party packages.",

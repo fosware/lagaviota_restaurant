@@ -11,8 +11,8 @@ export function MenuHighlights() {
   const { t } = useI18n();
 
   return (
-    <section className="section-pad relative bg-[#cce8ec]">
-      <div className="confetti-field absolute inset-0 opacity-[0.08]" aria-hidden="true" />
+    <section className="section-pad relative bg-[#f5f0e8]">
+      <div className="confetti-field absolute inset-0 opacity-[0.5]" aria-hidden="true" />
       <div className="container-page relative">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading
@@ -36,7 +36,7 @@ export function MenuHighlights() {
               className="group overflow-hidden rounded-lg border bg-card shadow-sm transition-transform hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
             >
               <div className="relative h-44">
-                <span className="absolute inset-x-0 top-0 z-10 h-1 bg-[linear-gradient(90deg,#2f7d32,#ffffff,#c13f4f)]" aria-hidden="true" />
+                <span className="absolute inset-x-0 top-0 z-10 h-1 bg-[linear-gradient(90deg,#2d8a6e,#ffffff,#e65546)]" aria-hidden="true" />
                 <Image
                   src={item.image}
                   alt={`${item.name} from La Gaviota menu`}

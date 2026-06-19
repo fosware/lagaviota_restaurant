@@ -10,9 +10,9 @@ export function ContactSection() {
   const { t } = useI18n();
 
   return (
-    <section className="section-pad relative overflow-hidden bg-[#cce8ec]">
+    <section className="section-pad relative overflow-hidden bg-[#f5f0e8]">
       <div className="papel-picado absolute inset-x-0 top-0 opacity-85" aria-hidden="true" />
-      <div className="confetti-field absolute inset-0 opacity-[0.09]" aria-hidden="true" />
+      <div className="confetti-field absolute inset-0 opacity-[0.5]" aria-hidden="true" />
       <div className="container-page relative">
         <SectionHeading
           eyebrow={t("contact.eyebrow")}

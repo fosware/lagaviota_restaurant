@@ -12,7 +12,7 @@ export function Footer() {
   return (
     <footer className="coastal-hero relative overflow-hidden border-t pb-24 text-background lg:pb-0">
       <div className="papel-picado absolute inset-x-0 top-0" aria-hidden="true" />
-      <div className="confetti-field absolute inset-0 opacity-[0.08]" aria-hidden="true" />
+      <div className="confetti-field absolute inset-0 opacity-[0.5]" aria-hidden="true" />
       <div className="container-page relative grid gap-8 py-12 md:grid-cols-[1.2fr_0.8fr_0.9fr]">
         <div>
           <p className="text-2xl font-black text-secondary">La Gaviota</p>

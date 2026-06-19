@@ -10,7 +10,7 @@ export function HomeGallerySection() {
   return (
     <section className="section-pad relative overflow-hidden bg-background">
       <div className="coastal-wave absolute inset-x-0 top-0 h-20 rotate-180 opacity-45" aria-hidden="true" />
-      <div className="confetti-field absolute inset-0 opacity-[0.07]" aria-hidden="true" />
+      <div className="confetti-field absolute inset-0 opacity-[0.5]" aria-hidden="true" />
       <div className="container-page relative">
         <SectionHeading
           eyebrow={t("gallery.eyebrow")}

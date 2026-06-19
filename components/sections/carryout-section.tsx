@@ -20,7 +20,7 @@ export function CarryoutSection() {
   return (
     <section className="section-pad coastal-hero relative overflow-hidden text-background">
       <div className="papel-picado absolute inset-x-0 top-0" aria-hidden="true" />
-      <div className="confetti-field absolute inset-0 opacity-[0.1]" aria-hidden="true" />
+      <div className="confetti-field absolute inset-0 opacity-[0.5]" aria-hidden="true" />
       <div className="container-page relative grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-center">
         <SectionHeading
           eyebrow={t("carryout.eyebrow")}

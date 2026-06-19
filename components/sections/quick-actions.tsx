@@ -40,12 +40,12 @@ export function QuickActions() {
   ];
 
   return (
-    <section className="relative border-y bg-[#cce8ec] py-6">
-      <div className="confetti-field absolute inset-0 opacity-[0.08]" aria-hidden="true" />
+    <section className="relative border-y bg-[#f5f0e8] py-6">
+      <div className="confetti-field absolute inset-0 opacity-[0.5]" aria-hidden="true" />
       <div className="container-page grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {actions.map((action) => (
           <Link key={action.title} href={action.href} target={action.external ? "_blank" : undefined} rel={action.external ? "noreferrer" : undefined} className="papel-cutout group relative flex min-h-28 items-center gap-4 overflow-hidden rounded-lg border bg-background/94 p-4 shadow-sm transition-colors hover:border-primary/45 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
-            <span className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,#2f7d32,#d97706,#c13f4f)] opacity-80" aria-hidden="true" />
+            <span className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,#2d8a6e,#e59400,#e65546)] opacity-80" aria-hidden="true" />
             <span className="grid size-11 shrink-0 place-items-center rounded-md bg-accent text-accent-foreground">
               <action.icon className="size-5" aria-hidden="true" />
             </span>

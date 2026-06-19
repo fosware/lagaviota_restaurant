@@ -23,14 +23,14 @@ export function CateringInquiryForm() {
       </CardHeader>
       <CardContent>
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-md border bg-[#fde9b8] p-4">
+          <div className="rounded-md border bg-[#f5e6d3] p-4">
             <UsersRound className="size-6 text-primary" aria-hidden="true" />
             <p className="mt-3 text-sm font-black uppercase text-primary">{t("cateringForm.goodToKnow")}</p>
             <p className="mt-2 text-sm font-bold leading-6 text-muted-foreground">
               {t("cateringForm.goodCopy")}
             </p>
           </div>
-          <div className="rounded-md border bg-[#fde9b8] p-4">
+          <div className="rounded-md border bg-[#f5e6d3] p-4">
             <CalendarCheck className="size-6 text-accent" aria-hidden="true" />
             <p className="mt-3 text-sm font-black uppercase text-accent">{t("cateringForm.askAbout")}</p>
             <p className="mt-2 text-sm font-bold leading-6 text-muted-foreground">

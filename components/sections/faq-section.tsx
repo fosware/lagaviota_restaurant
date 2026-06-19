@@ -10,7 +10,7 @@ export function FAQSection() {
   return (
     <section className="section-pad relative overflow-hidden bg-background">
       <div className="coastal-wave absolute inset-x-0 bottom-0 h-20 opacity-50" aria-hidden="true" />
-      <div className="confetti-field absolute inset-0 opacity-[0.06]" aria-hidden="true" />
+      <div className="confetti-field absolute inset-0 opacity-[0.5]" aria-hidden="true" />
       <div className="container-page relative">
         <SectionHeading
           eyebrow={t("faq.eyebrow")}

@@ -16,8 +16,8 @@ export function AboutSection() {
   ];
 
   return (
-    <section className="section-pad relative overflow-hidden bg-[#cce8ec]">
-      <div className="confetti-field absolute inset-0 opacity-[0.08]" aria-hidden="true" />
+    <section className="section-pad relative overflow-hidden bg-[#f5f0e8]">
+      <div className="confetti-field absolute inset-0 opacity-[0.5]" aria-hidden="true" />
       <div className="container-page relative grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         <div>
           <SectionHeading

@@ -10,8 +10,8 @@ export function FamilyPacksSection() {
   const { t } = useI18n();
 
   return (
-    <section className="section-pad relative overflow-hidden bg-[#cce8ec]">
-      <div className="confetti-field absolute inset-0 opacity-[0.08]" aria-hidden="true" />
+    <section className="section-pad relative overflow-hidden bg-[#f5f0e8]">
+      <div className="confetti-field absolute inset-0 opacity-[0.5]" aria-hidden="true" />
       <div className="container-page relative grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <SectionHeading
           eyebrow={t("family.eyebrow")}

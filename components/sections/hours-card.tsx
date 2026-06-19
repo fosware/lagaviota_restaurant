@@ -25,7 +25,7 @@ export function HoursCard() {
             <dt className="font-black">{t("hours.days")}</dt>
             <dd className="font-bold text-muted-foreground">{t("hours.time")}</dd>
           </div>
-          <div className="rounded-md bg-[#fde9b8] p-3 text-sm font-bold leading-6 text-muted-foreground">
+          <div className="rounded-md bg-[#f5e6d3] p-3 text-sm font-bold leading-6 text-muted-foreground">
             {t("contact.hoursNote")}
           </div>
         </dl>

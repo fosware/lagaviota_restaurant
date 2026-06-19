@@ -41,19 +41,19 @@ const categoryIcons = {
 };
 
 const categoryAccent = {
-  "Tacos La Gaviota": "bg-[#fde9b8] text-primary",
+  "Tacos La Gaviota": "bg-[#f5e6d3] text-primary",
   Burritos: "bg-secondary/20 text-[#7d4e00]",
   "Burritos Smothered": "bg-secondary/20 text-[#7d4e00]",
-  "Breakfast Burritos": "bg-[#fde9b8] text-primary",
-  "Platos de Desayuno": "bg-[#fde9b8] text-primary",
-  Plates: "bg-[#fde9b8] text-primary",
+  "Breakfast Burritos": "bg-[#f5e6d3] text-primary",
+  "Platos de Desayuno": "bg-[#f5e6d3] text-primary",
+  Plates: "bg-[#f5e6d3] text-primary",
   Gorditas: "bg-secondary/20 text-[#7d4e00]",
   Seafood: "bg-primary/10 text-primary",
   Pupusas: "bg-accent/12 text-accent",
   Sopes: "bg-accent/12 text-accent",
   Tortas: "bg-secondary/18 text-[#7d4e00]",
-  Tostadas: "bg-[#fde9b8] text-primary",
-  Combos: "bg-[#fde9b8] text-primary",
+  Tostadas: "bg-[#f5e6d3] text-primary",
+  Combos: "bg-[#f5e6d3] text-primary",
   Sides: "bg-secondary/18 text-[#7d4e00]",
   Extras: "bg-muted text-primary",
   Postres: "bg-secondary/18 text-[#7d4e00]",
@@ -130,7 +130,7 @@ export function MenuCategory({ category, index }: { category: MenuCategoryType; 
               {category.featured.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border bg-[#fde9b8] px-3 py-1 text-xs font-black text-primary"
+                  className="rounded-full border bg-[#f5e6d3] px-3 py-1 text-xs font-black text-primary"
                 >
                   {item}
                 </span>
@@ -160,7 +160,7 @@ export function MenuCategory({ category, index }: { category: MenuCategoryType; 
         <div className="border-t pt-4">
           <a
             href="#menu-map"
-            className="inline-flex min-h-10 items-center gap-2 rounded-md bg-muted px-4 text-sm font-black text-primary hover:bg-[#fde9b8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
+            className="inline-flex min-h-10 items-center gap-2 rounded-md bg-muted px-4 text-sm font-black text-primary hover:bg-[#f5e6d3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
           >
             <ArrowUp className="size-4" aria-hidden="true" />
             {t("menuCategory.back")}

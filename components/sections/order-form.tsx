@@ -79,7 +79,7 @@ export function OrderForm() {
   return (
     <section className="relative overflow-hidden bg-background pb-16 pt-10 sm:pb-20 lg:pt-12">
       <div className="coastal-wave absolute inset-x-0 top-0 h-24 rotate-180 opacity-45" aria-hidden="true" />
-      <div className="confetti-field absolute inset-0 opacity-[0.07]" aria-hidden="true" />
+      <div className="confetti-field absolute inset-0 opacity-[0.5]" aria-hidden="true" />
       <div className="container-page relative">
         <div className="grid gap-8 lg:grid-cols-[0.68fr_0.32fr] lg:items-start">
           <div>
@@ -92,7 +92,7 @@ export function OrderForm() {
             </p>
           </div>
 
-          <Card className="relative overflow-hidden bg-[#fde9b8] shadow-sm">
+          <Card className="relative overflow-hidden bg-[#f5e6d3] shadow-sm">
             <div
               className="absolute inset-x-0 top-0 h-1.5 bg-[linear-gradient(90deg,var(--accent),var(--secondary),var(--primary))]"
               aria-hidden="true"
@@ -177,7 +177,7 @@ export function OrderForm() {
                       <button
                         key={item}
                         type="button"
-                        className="inline-flex min-h-10 items-center gap-2 rounded-full border bg-[#fde9b8] px-3 text-xs font-black text-primary transition-colors hover:border-primary hover:bg-secondary/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
+                        className="inline-flex min-h-10 items-center gap-2 rounded-full border bg-[#f5e6d3] px-3 text-xs font-black text-primary transition-colors hover:border-primary hover:bg-secondary/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
                         onClick={() => addItem(item)}
                       >
                         <Plus className="size-3.5" aria-hidden="true" />

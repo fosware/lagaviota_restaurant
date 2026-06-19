@@ -13,7 +13,7 @@ export function GalleryPageContent() {
   return (
     <section className="relative overflow-hidden bg-background pb-16 pt-10 sm:pb-20 lg:pt-12">
       <div className="coastal-wave absolute inset-x-0 top-0 h-24 rotate-180 opacity-45" aria-hidden="true" />
-      <div className="confetti-field absolute inset-0 opacity-[0.07]" aria-hidden="true" />
+      <div className="confetti-field absolute inset-0 opacity-[0.5]" aria-hidden="true" />
       <div className="container-page relative">
         <div className="grid gap-8 lg:grid-cols-[1fr_0.42fr] lg:items-start">
           <SectionHeading

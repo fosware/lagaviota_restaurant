@@ -19,7 +19,7 @@ export function MenuPageContent() {
   return (
     <>
       <section className="relative overflow-hidden bg-foreground pb-12 pt-10 text-background sm:pb-16 lg:pt-12">
-        <div className="absolute inset-x-0 top-0 h-2 bg-[linear-gradient(90deg,#005f73_0_20%,#d97706_20%_40%,#e07850_40%_60%,#2f7d32_60%_80%,#0d1f26_80%)]" aria-hidden="true" />
+        <div className="absolute inset-x-0 top-0 h-2 bg-[linear-gradient(90deg,#e65546_0_20%,#e59400_20%_40%,#2d8a6e_40%_60%,#2f7d32_60%_80%,#2c2420_80%)]" aria-hidden="true" />
         <div className="container-page">
           <div className="grid gap-8 lg:grid-cols-[1fr_0.58fr] lg:items-center">
             <div>
@@ -72,7 +72,7 @@ export function MenuPageContent() {
         </div>
       </section>
 
-      <section className="confetti-field bg-[#cce8ec] py-5">
+      <section className="confetti-field bg-[#f5f0e8] py-5">
         <div className="container-page">
           <div className="grid gap-3 lg:grid-cols-3">
             <Link
@@ -123,7 +123,7 @@ export function MenuPageContent() {
       <section className="confetti-field bg-background pb-16 pt-8 sm:pb-20">
         <div className="container-page">
           <nav id="menu-map" className="scroll-mt-28 rounded-lg border bg-card shadow-sm" aria-label={t("menuPage.categories")}>
-            <div className="border-b bg-[#fde9b8] p-4 sm:flex sm:items-end sm:justify-between sm:gap-6">
+            <div className="border-b bg-[#f5e6d3] p-4 sm:flex sm:items-end sm:justify-between sm:gap-6">
               <div>
                 <p className="text-sm font-black uppercase text-primary">{t("menuPage.choose")}</p>
                 <p className="mt-1 text-sm font-bold text-muted-foreground">
@@ -145,7 +145,7 @@ export function MenuPageContent() {
                   <li key={category.name} className="break-inside-avoid border-b">
                     <a
                       href={`#${anchorFor(category.name)}`}
-                      className="group grid min-h-12 grid-cols-[2rem_1fr_auto] items-center gap-2 rounded-md px-2 py-2 text-sm font-black text-foreground transition-colors hover:bg-[#fde9b8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
+                      className="group grid min-h-12 grid-cols-[2rem_1fr_auto] items-center gap-2 rounded-md px-2 py-2 text-sm font-black text-foreground transition-colors hover:bg-[#f5e6d3] focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring"
                     >
                       <span className="text-xs font-black text-primary/70">
                         {String(index + 1).padStart(2, "0")}
@@ -167,7 +167,7 @@ export function MenuPageContent() {
             ))}
           </div>
 
-          <div className="mt-10 rounded-lg border bg-[#fde9b8] p-5">
+          <div className="mt-10 rounded-lg border bg-[#f5e6d3] p-5">
             <p className="text-sm font-black uppercase text-primary">{t("menuPage.quickNote")}</p>
             <p className="mt-2 text-sm font-bold leading-6 text-muted-foreground">
               {t("menuPage.quickNoteCopy")}

@@ -21,8 +21,8 @@ export function HeroSection() {
   return (
     <section className="coastal-hero relative overflow-hidden text-background">
       <div className="papel-picado absolute inset-x-0 top-0" aria-hidden="true" />
-      <div className="absolute inset-0 opacity-[0.07] grain" aria-hidden="true" />
-      <div className="confetti-field absolute inset-0 opacity-[0.12]" aria-hidden="true" />
+      <div className="absolute inset-0 opacity-[0.5] grain" aria-hidden="true" />
+      <div className="confetti-field absolute inset-0 opacity-[0.5]" aria-hidden="true" />
       <div className="coastal-wave absolute inset-x-0 bottom-0 h-32" aria-hidden="true" />
       <div className="container-page relative grid min-h-[760px] items-start gap-10 py-10 sm:min-h-[780px] sm:py-14 lg:min-h-[820px] lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:py-14">
         <div className="max-w-3xl">
@@ -39,7 +39,7 @@ export function HeroSection() {
             <a
               href={business.phoneHref}
               aria-label={`${t("cta.callToOrder")} ${business.phoneDisplay}`}
-              className="group flex min-h-16 items-center justify-between gap-4 rounded-md border border-primary/35 bg-[#cce8ec] px-5 py-4 text-foreground transition-colors hover:bg-[#aad8de] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+              className="group flex min-h-16 items-center justify-between gap-4 rounded-md border border-primary/35 bg-[#f5f0e8] px-5 py-4 text-foreground transition-colors hover:bg-[#f0e0d8] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
             >
               <span className="flex items-center gap-3">
                 <span className="grid size-11 shrink-0 place-items-center rounded-md bg-primary text-primary-foreground">
@@ -77,15 +77,15 @@ export function HeroSection() {
             </div>
           </div>
           <div className="mt-5 grid gap-3 text-sm font-black text-background sm:grid-cols-3">
-            <p className="flex items-center gap-2 rounded-md border border-secondary/35 bg-[#0d1f26]/88 p-3 shadow-md backdrop-blur">
+            <p className="flex items-center gap-2 rounded-md border border-secondary/35 bg-[#2c2420]/88 p-3 shadow-md backdrop-blur">
               <Clock className="size-4 shrink-0 text-secondary" aria-hidden="true" />
               {t("hours.short")}
             </p>
-            <p className="flex items-center gap-2 rounded-md border border-secondary/35 bg-[#0d1f26]/88 p-3 shadow-md backdrop-blur">
+            <p className="flex items-center gap-2 rounded-md border border-secondary/35 bg-[#2c2420]/88 p-3 shadow-md backdrop-blur">
               <MapPin className="size-4 shrink-0 text-secondary" aria-hidden="true" />
               {t("hero.location")}
             </p>
-            <p className="flex items-center gap-2 rounded-md border border-secondary/35 bg-[#0d1f26]/88 p-3 shadow-md backdrop-blur">
+            <p className="flex items-center gap-2 rounded-md border border-secondary/35 bg-[#2c2420]/88 p-3 shadow-md backdrop-blur">
               <CalendarCheck className="size-4 shrink-0 text-secondary" aria-hidden="true" />
               {t("hero.cateringByPhone")}
             </p>
@@ -94,7 +94,7 @@ export function HeroSection() {
 
         <div className="relative">
           <div className="food-shadow relative overflow-hidden rounded-lg border-4 border-background/18 bg-card">
-            <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-[linear-gradient(90deg,#2f7d32_0_33%,#ffffff_33%_66%,#c13f4f_66%)]" aria-hidden="true" />
+            <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-[linear-gradient(90deg,#2d8a6e_0_33%,#ffffff_33%_66%,#e65546_66%)]" aria-hidden="true" />
             <Image
               src="/images/fajitas-combinadas.webp"
               alt="Fajitas combinadas plate from La Gaviota Mexican Restaurant in Denver"
@@ -112,7 +112,7 @@ export function HeroSection() {
               { src: "/images/pupusas.webp", label: t("hero.pupusas") },
               { src: "/images/siete-mares.webp", label: t("hero.sevenSeas") },
             ].map((item) => (
-              <div key={item.label} className="flex flex-col gap-2 rounded-md bg-[#fde9b8] p-2 sm:flex-row sm:items-center sm:gap-3">
+              <div key={item.label} className="flex flex-col gap-2 rounded-md bg-[#f5e6d3] p-2 sm:flex-row sm:items-center sm:gap-3">
                 <span className="relative size-12 shrink-0 overflow-hidden rounded-md sm:size-14">
                   <Image src={item.src} alt={item.label} fill sizes="56px" className="object-cover" />
                 </span>

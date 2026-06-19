@@ -21,10 +21,10 @@ export function CateringSection({ compact = false }: { compact?: boolean }) {
 
   return (
     <section className={compact ? "relative bg-background py-10" : "section-pad relative bg-background"}>
-      <div className="confetti-field absolute inset-0 opacity-[0.08]" aria-hidden="true" />
+      <div className="confetti-field absolute inset-0 opacity-[0.5]" aria-hidden="true" />
       <div className="container-page relative grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <div className="food-shadow relative overflow-hidden rounded-lg border bg-muted">
-          <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-[linear-gradient(90deg,#2f7d32_0_33%,#ffffff_33%_66%,#c13f4f_66%)]" aria-hidden="true" />
+          <div className="absolute inset-x-0 top-0 z-10 h-1.5 bg-[linear-gradient(90deg,#2d8a6e_0_33%,#ffffff_33%_66%,#e65546_66%)]" aria-hidden="true" />
           <Image
             src="/images/alambre.webp"
             alt="Mexican catering dishes for parties in Denver"
